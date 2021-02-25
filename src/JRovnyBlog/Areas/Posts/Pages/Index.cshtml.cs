@@ -1,16 +1,23 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using JRovnyBlog.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace JRovnyBlog.Areas.Posts.Pages
 {
     public class IndexModel : PageModel
     {
-        public void OnGet()
+        private readonly ApplicationDbContext _context;
+        public List<Post> Posts;
+        public IndexModel(ApplicationDbContext context)
         {
+            _context = context;
+        }
+
+        public async Task OnGetAsync()
+        {
+            this.Posts = await _context.Posts.AsNoTracking().ToListAsync();
         }
     }
 }
