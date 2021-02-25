@@ -24,6 +24,7 @@ namespace JRovnyBlog
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IConnectionService, ConnectionService>();
+            services.AddDbContext<ApplicationDbContext>();
             services.AddRazorPages();
         }
 
