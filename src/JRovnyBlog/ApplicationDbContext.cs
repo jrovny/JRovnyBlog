@@ -1,3 +1,4 @@
+using JRovnyBlog.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace JRovnyBlog
@@ -5,7 +6,7 @@ namespace JRovnyBlog
     public class ApplicationDbContext : DbContext
     {
         private readonly IConnectionService _connectionService;
-
+        public DbSet<Post> Posts { get; set; }
         public ApplicationDbContext(IConnectionService connectionService)
         {
             _connectionService = connectionService;
