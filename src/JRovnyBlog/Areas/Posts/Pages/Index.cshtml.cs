@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using JRovnyBlog.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,16 +9,17 @@ namespace JRovnyBlog.Areas.Posts.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
-        public List<Post> Posts;
-        public IndexModel(ApplicationDbContext context)
+        private readonly IPostsService _postsService;
+        public IEnumerable<PostSummary> Posts;
+
+        public IndexModel(IPostsService postsService)
         {
-            _context = context;
+            _postsService = postsService;
         }
 
         public async Task OnGetAsync()
         {
-            this.Posts = await _context.Posts.AsNoTracking().ToListAsync();
+            Posts = await _postsService.GetAllBlogPostsAsync();
         }
     }
 }
