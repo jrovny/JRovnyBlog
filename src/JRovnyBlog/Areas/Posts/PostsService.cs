@@ -33,5 +33,13 @@ namespace JRovnyBlog.Areas.Posts
                 .OrderByDescending(p => p.PostId)
                 .ToListAsync();
         }
+
+        public async Task<Models.Post> GetBySlugAsync(string slug)
+        {
+            return await _context.Posts
+                .AsNoTracking()
+                .Where(p => p.Slug == slug)
+                .FirstOrDefaultAsync();
+        }
     }
 }
