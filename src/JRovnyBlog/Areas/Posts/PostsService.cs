@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JRovnyBlog.Areas.Posts.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace JRovnyBlog.Areas.Posts
@@ -34,7 +35,7 @@ namespace JRovnyBlog.Areas.Posts
                 .ToListAsync();
         }
 
-        public async Task<Models.Post> GetBySlugAsync(string slug)
+        public async Task<JRovnyBlog.Models.Post> GetBySlugAsync(string slug)
         {
             return await _context.Posts
                 .AsNoTracking()
