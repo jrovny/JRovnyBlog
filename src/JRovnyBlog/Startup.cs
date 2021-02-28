@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using JRovnyBlog.Areas.Posts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,6 +27,7 @@ namespace JRovnyBlog
         {
             services.AddSingleton<IConnectionService, ConnectionService>();
             services.AddDbContext<ApplicationDbContext>();
+            services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IPostsService, PostsService>();
             services.AddRazorPages();
         }
