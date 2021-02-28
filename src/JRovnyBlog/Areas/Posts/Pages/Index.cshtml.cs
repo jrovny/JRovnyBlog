@@ -1,17 +1,18 @@
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using JRovnyBlog.Models;
+using JRovnyBlog.Areas.Posts.Models;
+using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace JRovnyBlog.Areas.Posts.Pages
 {
     public class IndexModel : PageModel
     {
+        [BindProperty(SupportsGet = true)]
+        public string Slug { get; set; }
         private readonly IPostsService _postsService;
-        public IEnumerable<PostSummary> Posts;
-
+        public PostDetail Post;
+        public HtmlString PostContent;
         public IndexModel(IPostsService postsService)
         {
             _postsService = postsService;
@@ -19,7 +20,8 @@ namespace JRovnyBlog.Areas.Posts.Pages
 
         public async Task OnGetAsync()
         {
-            Posts = await _postsService.GetAllBlogPostsAsync();
+            Post = await _postsService.GetBySlugAsync(Slug);
+            PostContent = new HtmlString(Post.Content);
         }
     }
 }
