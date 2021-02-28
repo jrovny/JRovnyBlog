@@ -30,6 +30,7 @@ namespace JRovnyBlog.Areas.Posts
                     UpvoteCount = p.UpvoteCount,
                     CreatedDate = p.CreatedDate
                 })
+                .OrderByDescending(p => p.PostId)
                 .ToListAsync();
         }
     }
