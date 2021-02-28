@@ -1,11 +1,22 @@
-﻿@page
+﻿@page "{slug}"
 @model JRovnyBlog.Areas.Posts.Pages.IndexModel
 @{
 }
 
-<div>
-    @foreach (var item in Model.Posts)
-    {
-        <h3>@item.Title</h3>
-    }
+<div class="container">
+    <div class="row justify-content-center">
+        @* <div class="col-md-2"></div> *@
+        <div>
+            <div class="card mb-3">
+                <img src="@Model.Post.Image" class="card-img-top img-fluid" alt="Blog post image">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Post.Title</h5>
+                    <h6 class="card-subtitle text-muted">@Model.Post.CreatedDate.ToShortDateString() &bull; Jordan</h6>
+
+                    @Model.PostContent
+                </div>
+            </div>
+        </div>
+        @* <div class="col-md-2"></div> *@
+    </div>
 </div>
