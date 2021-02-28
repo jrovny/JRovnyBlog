@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JRovnyBlog.Areas.Posts.Models;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 namespace JRovnyBlog.Areas.Posts
@@ -10,9 +10,11 @@ namespace JRovnyBlog.Areas.Posts
     public class PostsService : IPostsService
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public PostsService(ApplicationDbContext context)
+        public PostsService(ApplicationDbContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
         }
 
@@ -35,12 +37,12 @@ namespace JRovnyBlog.Areas.Posts
                 .ToListAsync();
         }
 
-        public async Task<JRovnyBlog.Models.Post> GetBySlugAsync(string slug)
+        public async Task<Models.PostDetail> GetBySlugAsync(string slug)
         {
-            return await _context.Posts
+            return _mapper.Map<Models.PostDetail>(await _context.Posts
                 .AsNoTracking()
                 .Where(p => p.Slug == slug)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync());
         }
     }
 }
