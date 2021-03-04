@@ -21,7 +21,7 @@
                         <h6 class="card-subtitle text-muted">@post.CreatedDate.ToShortDateString() &bull; Jordan</h6>
                     </div>
                     <div class="card-footer">
-                        <a asp-area="Posts" asp-page="/index" class="card-link">Continue
+                        <a asp-page="/Posts/Index" asp-route-slug="@post.Slug" class="card-link">Continue
                             reading...
                         </a>
                     </div>
