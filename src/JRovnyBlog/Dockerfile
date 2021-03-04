@@ -1,4 +1,5 @@
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+# https://github.com/NuGet/Announcements/issues/49
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim-amd64 AS base
 WORKDIR /app
 EXPOSE 5001
 
