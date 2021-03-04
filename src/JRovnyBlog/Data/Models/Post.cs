@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace JRovnyBlog.Models
+namespace JRovnyBlog.Data.Models
 {
     [Table("post")]
     public class Post

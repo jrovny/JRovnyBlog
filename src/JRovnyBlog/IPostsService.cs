@@ -5,7 +5,7 @@ namespace JRovnyBlog.Areas.Posts
 {
     public interface IPostsService
     {
-        Task<IEnumerable<PostSummary>> GetAllBlogPostsAsync();
+        Task<IEnumerable<Models.PostSummary>> GetAllBlogPostsAsync();
         Task<Models.PostDetail> GetBySlugAsync(string slug);
     }
 }

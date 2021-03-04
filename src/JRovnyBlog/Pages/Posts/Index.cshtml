@@ -1,5 +1,5 @@
 ﻿@page "{slug}"
-@model JRovnyBlog.Areas.Posts.Pages.IndexModel
+@model JRovnyBlog.Pages.Posts.IndexModel
 @{
 }
 
@@ -12,8 +12,8 @@
                 <div class="card-body">
                     <h5 class="card-title">@Model.Post.Title</h5>
                     <h6 class="card-subtitle text-muted">@Model.Post.CreatedDate.ToShortDateString() &bull; Jordan</h6>
-
-                    @Model.PostContent
+                    <div class="mt-5">@Model.PostContent</div>
+                    <a asp-page="/index" asp-area="Posts" class="card-link">Customers</a>
                 </div>
             </div>
         </div>

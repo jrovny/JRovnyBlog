@@ -6,8 +6,8 @@ namespace JRovnyBlog
     {
         public MappingProfile()
         {
-            CreateMap<Models.Post, Areas.Posts.PostSummary>();
-            CreateMap<Models.Post, Areas.Posts.Models.PostDetail>();
+            CreateMap<Data.Models.Post, Models.PostSummary>();
+            CreateMap<Data.Models.Post, Models.PostDetail>();
         }
     }
 }

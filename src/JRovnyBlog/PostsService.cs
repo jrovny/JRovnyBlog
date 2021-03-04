@@ -18,12 +18,12 @@ namespace JRovnyBlog.Areas.Posts
             _context = context;
         }
 
-        public async Task<IEnumerable<PostSummary>> GetAllBlogPostsAsync()
+        public async Task<IEnumerable<Models.PostSummary>> GetAllBlogPostsAsync()
         {
             return await _context.Posts
                 .AsNoTracking()
                 .Where(p => p.Published == true)
-                .Select(p => new PostSummary
+                .Select(p => new Models.PostSummary
                 {
                     PostId = p.PostId,
                     Title = p.Title,

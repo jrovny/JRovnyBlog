@@ -13,7 +13,7 @@ namespace JRovnyBlog.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly IPostsService _postsService;
-        public IEnumerable<PostSummary> Posts;
+        public IEnumerable<Models.PostSummary> Posts;
 
         public IndexModel(ILogger<IndexModel> logger, IPostsService postsService)
         {
