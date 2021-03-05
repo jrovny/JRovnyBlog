@@ -1,9 +1,9 @@
 # https://github.com/NuGet/Announcements/issues/49
-FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim-amd64 AS base
+FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim-amd64 AS base
 WORKDIR /app
 EXPOSE 5001
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim-amd64 AS build
 WORKDIR /src
 COPY ["./JRovnyBlog.csproj", "src/"]
 RUN dotnet restore "src/JRovnyBlog.csproj"
