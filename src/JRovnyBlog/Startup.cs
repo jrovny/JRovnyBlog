@@ -2,6 +2,7 @@ using AutoMapper;
 using JRovnyBlog.Areas.Posts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,6 +26,12 @@ namespace JRovnyBlog
             services.AddDbContext<ApplicationDbContext>();
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IPostsService, PostsService>();
+            services.Configure<RouteOptions>(options =>
+            {
+                options.LowercaseUrls = true;
+                options.LowercaseQueryStrings = true;
+                options.AppendTrailingSlash = false;
+            });
             services.AddRazorPages();
         }
 
