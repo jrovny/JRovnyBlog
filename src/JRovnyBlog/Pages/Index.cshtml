@@ -10,22 +10,24 @@
     </div>
 
     @* List of Blog Post Summaries *@
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-1">
-            @foreach (var post in Model.Posts)
-            {
-                <div class="card mb-3">
-                    <img src="@post.Image" class="card-img-top img-fluid" alt="Blog post image">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a asp-page="/Posts/Index" asp-route-slug="@post.Slug" class="card-link stretched-link">
-                                @post.Title
-                            </a>
-                        </h5>
-                        <h6 class="card-subtitle text-muted">@post.CreatedDate.ToShortDateString() &bull; Jordan</h6>
+    <div class="container px-5-sm">
+        @foreach (var post in Model.Posts)
+        {
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-6 col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">@post.Title</h5>
+                            @* <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p> *@
+                            <p class="card-text"><small class="text-muted">@post.CreatedDate.ToShortDateString() &bull; Jordan</small></p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 align-self-center">
+                        <img src="@post.Image" alt="Blog post image" class="img-fluid">
                     </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
 </div>
