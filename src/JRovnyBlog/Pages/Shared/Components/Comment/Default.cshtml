@@ -1,9 +1,9 @@
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">@Model.UserName</h5>
-        <h6 class="card-subtitle mb-3 text-muted">@Model.CreatedDate</h6>
-        <p class="card-text">
-            @Model.Content
+<div class="card border-dark">
+    <div class="card-body py-2">
+        <h5 class="mb-1">@Model.UserName</h5>
+        <h6 class="card-subtitle mb-2 text-muted"><small>@Model.CreatedDate</small></h6>
+        <p class="card-text" style="line-height: normal;">
+            <small>@Model.Content</small>
         </p>
     </div>
 </div>
