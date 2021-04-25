@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace JRovnyBlog.Models
 {
@@ -16,5 +18,11 @@ namespace JRovnyBlog.Models
         public bool Published { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
+        public ICollection<Comment> Comments { get; }
+
+        public PostDetail()
+        {
+            Comments = new Collection<Models.Comment>();
+        }
     }
 }
