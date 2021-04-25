@@ -40,6 +40,7 @@ namespace JRovnyBlog.Services
         public async Task<Models.PostDetail> GetBySlugAsync(string slug)
         {
             return _mapper.Map<Models.PostDetail>(await _context.Posts
+                .Include(p => p.Comments)
                 .AsNoTracking()
                 .Where(p => p.Slug == slug)
                 .FirstOrDefaultAsync());
