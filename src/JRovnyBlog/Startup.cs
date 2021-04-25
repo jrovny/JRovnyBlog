@@ -1,5 +1,5 @@
 using AutoMapper;
-using JRovnyBlog.Areas.Posts;
+using JRovnyBlog.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;

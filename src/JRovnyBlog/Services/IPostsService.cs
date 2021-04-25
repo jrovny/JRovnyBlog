@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace JRovnyBlog.Areas.Posts
+namespace JRovnyBlog.Services
 {
     public interface IPostsService
     {

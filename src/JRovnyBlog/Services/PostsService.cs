@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
-namespace JRovnyBlog.Areas.Posts
+namespace JRovnyBlog.Services
 {
 
     public class PostsService : IPostsService
