@@ -22,13 +22,7 @@
                         <h5 class="card-title">@Model.Post.Comments.Count() Comments</h5>
                         @foreach (var comment in @Model.Post.Comments)
                         {
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        @comment.Content
-                                    </p>
-                                </div>
-                            </div>
+                            <vc:comment comment="@comment"></vc:comment>
                         }
                     </div>
                 </div>
