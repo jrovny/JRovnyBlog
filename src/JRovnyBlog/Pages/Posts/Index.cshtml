@@ -1,6 +1,7 @@
 ﻿@page "{slug}"
 @model JRovnyBlog.Pages.Posts.IndexModel
 @{
+    ViewData["Title"] = @Model.Post.Title;
 }
 
 <div class="container">
