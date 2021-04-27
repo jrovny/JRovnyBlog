@@ -1,16 +1,22 @@
-<div class="card border-dark">
-    <div class="card-body py-2">
-        <div class="d-flex flex-row">
-            <img src="https://s.gravatar.com/avatar/@Model.EmailHash?s=36" alt="User Avatar"
-                style="border-radius: 50%; height: 36px; width: 36px; margin-right: 5px;" />
-            <div>
-                <h5 class="mb-1">@Model.UserName</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><small>@Model.CreatedDate</small></h6>
+<div class="row">
+    @if (@Model.ParentCommentId > 0)
+    {
+        <div class="col-1"></div>
+    }
+    <div class="col card border-dark">
+        <div class="card-body py-3 px-1">
+            <div class="d-flex flex-row">
+                <img src="https://s.gravatar.com/avatar/@Model.EmailHash?s=36" alt="User Avatar"
+                    style="border-radius: 50%; height: 36px; width: 36px; margin-right: 5px;" />
+                <div>
+                    <h5 class="mb-1">@Model.UserName</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><small>@Model.CreatedDate</small></h6>
+                </div>
             </div>
+            <p class="card-text" style="line-height: normal;">
+                <small>@Model.Content</small>
+            </p>
+            <button type="button" class="btn btn-link btn-sm">Reply</button>
         </div>
-        <p class="card-text" style="line-height: normal;">
-            <small>@Model.Content</small>
-        </p>
-        <button type="button" class="btn btn-outline-primary btn-sm">Reply</button>
     </div>
 </div>
