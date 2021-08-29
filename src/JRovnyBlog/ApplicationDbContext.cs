@@ -5,11 +5,13 @@ namespace JRovnyBlog
     public class ApplicationDbContext : DbContext
     {
         private readonly IConnectionService _connectionService;
-        public DbSet<Data.Models.Post> Posts { get; set; }
+        
         public ApplicationDbContext(IConnectionService connectionService)
         {
             _connectionService = connectionService;
         }
+
+        public DbSet<Data.Models.Post> Posts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
