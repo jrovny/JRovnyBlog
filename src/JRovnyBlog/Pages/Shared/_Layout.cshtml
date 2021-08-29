@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     @* Facebook meta tags *@
-    <meta name="og:type" content="article"/>
+    <meta property="og:type" content="article"/>
     @if (@ViewData["ogurl"] != null)
     {
-        <meta name="og:url" content="@ViewData["ogurl"]"/>
+        <meta property="og:url" content="@ViewData["ogurl"]"/>
     }
     @if (@ViewData["ogtitle"] != null)
     {
-        <meta name="og:title" content="@ViewData["ogtitle"]"/>
+        <meta property="og:title" content="@ViewData["ogtitle"]"/>
     }
     @if (@ViewData["ogdescription"] != null)
     {
-        <meta name="og:description" content="@Html.Raw(@ViewData["ogdescription"])" />
+        <meta property="og:description" content="@Html.Raw(@ViewData["ogdescription"])" />
     }
     @if (@ViewData["ogimage"] != null)
     {
-        <meta name="og:image" content="@ViewData["ogimage"]"/>
+        <meta property="og:image" content="@ViewData["ogimage"]"/>
     }
 
     <title>@ViewData["Title"] - JRovnyBlog</title>
