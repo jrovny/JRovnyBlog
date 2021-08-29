@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using JRovnyBlog.Services;
 using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -22,6 +23,11 @@ namespace JRovnyBlog.Pages.Posts
         {
             Post = await _postsService.GetBySlugAsync(Slug);
             PostContent = new HtmlString(Post.Content);
+
+            ViewData["ogurl"] = HttpContext.Request.GetDisplayUrl();
+            ViewData["ogtitle"] = Post.Title;
+            ViewData["ogdescription"] = Post.Content.Substring(0, 100);
+            ViewData["ogimage"] = Post.Image;
         }
     }
 }
