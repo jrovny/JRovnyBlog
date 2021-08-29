@@ -26,7 +26,7 @@ namespace JRovnyBlog.Pages.Posts
 
             ViewData["ogurl"] = HttpContext.Request.GetDisplayUrl();
             ViewData["ogtitle"] = Post.Title;
-            // ViewData["ogdescription"] = Post.Content.Substring(0, 100);
+            ViewData["ogdescription"] = Post.Title;
             ViewData["ogimage"] = Post.Image;
         }
     }

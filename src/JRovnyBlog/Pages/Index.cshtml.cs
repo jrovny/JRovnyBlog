@@ -23,7 +23,7 @@ namespace JRovnyBlog.Pages
         {
             ViewData["ogurl"] = HttpContext.Request.GetDisplayUrl();
             ViewData["ogtitle"] = "JRovny Blog";
-            // ViewData["ogdescription"] = "JRovny Blog";
+            ViewData["ogdescription"] = "JRovny Blog";
             Posts = await _postsService.GetAllBlogPostsAsync();
         }
     }
