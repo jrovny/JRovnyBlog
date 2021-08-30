@@ -10,27 +10,10 @@
     </div>
 
     @* List of Blog Post Summaries *@
-    <div class="container px-0">
+    <div class="container px-0 d-none d-lg-block">
         @foreach (var post in Model.Posts)
         {
-                <div class="card mb-1 mb-md-3">
-                    <div class="row g-0">
-                        <div class="col-6 col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a asp-page="/Posts/Index" asp-route-slug="@post.Slug" class="card-link stretched-link fs-1">
-                                    @post.Title
-                                    </a>
-                                </h5>
-                                <p class="card-text"><small class="text-muted">@post.CreatedDate.ToShortDateString() &bull;
-                                        Jordan</small></p>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 align-self-center pl-0">
-                            <img src="@post.Image" alt="Blog post image" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
+            <partial name="PostSummary" model="@post"/>
         }
     </div>
 </div>

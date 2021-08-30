@@ -1,0 +1,20 @@
+﻿@model JRovnyBlog.Models.PostSummary
+
+<div class="card mb-1 mb-md-3">
+    <div class="row g-0">
+        <div class="col-6 col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a asp-page="/Posts/Index" asp-route-slug="@Model.Slug" class="card-link stretched-link fs-1">
+                    @Model.Title
+                    </a>
+                </h5>
+                <p class="card-text"><small class="text-muted">@Model.CreatedDate.ToShortDateString() &bull;
+                        Jordan</small></p>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 align-self-center pl-0">
+            <img src="@Model.Image" alt="Blog post image" class="img-fluid">
+        </div>
+    </div>
+</div>
