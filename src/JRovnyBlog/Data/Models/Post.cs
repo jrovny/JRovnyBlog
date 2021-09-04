@@ -37,10 +37,5 @@ namespace JRovnyBlog.Data.Models
         public DateTime ModifiedDate { get; set; }
         [Column("user_id")]
         public int UserId { get; set; }
-        public ICollection<Comment> Comments { get; set; }
-        public Post()
-        {
-            Comments = new Collection<Comment>();
-        }
     }
 }
