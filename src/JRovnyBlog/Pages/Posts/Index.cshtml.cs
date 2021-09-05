@@ -4,20 +4,25 @@ using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 
 namespace JRovnyBlog.Pages.Posts
 {
     public class IndexModel : PageModel
     {
-        [BindProperty(SupportsGet = true)]
-        public string Slug { get; set; }
         private readonly IPostsService _postsService;
-        public Models.PostDetail Post;
-        public HtmlString PostContent;
-        public IndexModel(IPostsService postsService)
+        private readonly IConfiguration _configuration;
+
+        public IndexModel(IPostsService postsService, IConfiguration configuration)
         {
             _postsService = postsService;
+            _configuration = configuration;
         }
+
+        [BindProperty(SupportsGet = true)]
+        public string Slug { get; set; }
+        public Models.PostDetail Post;
+        public HtmlString PostContent;
 
         public async Task OnGetAsync()
         {
