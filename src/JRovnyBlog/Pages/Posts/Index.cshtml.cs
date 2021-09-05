@@ -23,9 +23,11 @@ namespace JRovnyBlog.Pages.Posts
         public string Slug { get; set; }
         public Models.PostDetail Post;
         public HtmlString PostContent;
+        public string DisqusDomain { get; set; }
 
         public async Task OnGetAsync()
         {
+            DisqusDomain = _configuration["Disqus:Domain"];
             Post = await _postsService.GetBySlugAsync(Slug);
             PostContent = new HtmlString(Post.Content);
 
