@@ -4,18 +4,24 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="container px-0">
-    <div class="p-3 p-md-3 mb-4 text-white rounded bg-dark">
-        <h1 class="display-4 fst-italic" style="text-align: center;">JRovny Blog</h1>
-    </div>
+<div class="p-3 text-white rounded bg-dark">
+    <h1 class="display-4 fst-italic" style="text-align: center;">JRovny Blog</h1>
+</div>
 
+<div class="container px-0">
     @* List of Blog Post Summaries *@
     <div class="row">
-        @foreach (var post in Model.Posts)
-        {
-            <div class="col">
-                <partial name="PostSummary" model="@post"/>
-            </div>
-        }
+        <div class="col-0 col-md-2"></div>
+        <div class="col-12 col-md-8">
+            @foreach (var post in Model.Posts)
+            {
+                <div class="row">
+                    <div class="col">
+                        <partial name="PostSummary" model="@post"/>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-0 col-md-2"></div>
     </div>
 </div>
