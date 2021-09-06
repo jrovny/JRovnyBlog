@@ -10,10 +10,12 @@
     </div>
 
     @* List of Blog Post Summaries *@
-    <div class="container px-0">
+    <div class="row">
         @foreach (var post in Model.Posts)
         {
-            <partial name="PostSummary" model="@post"/>
+            <div class="col">
+                <partial name="PostSummary" model="@post"/>
+            </div>
         }
     </div>
 </div>
