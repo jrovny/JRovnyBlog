@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using JRovnyBlog.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace JRovnyBlog.Services
@@ -37,10 +38,21 @@ namespace JRovnyBlog.Services
 
         public async Task<Models.PostDetail> GetBySlugAsync(string slug)
         {
-            return _mapper.Map<Models.PostDetail>(await _context.Posts
-                .AsNoTracking()
-                .Where(p => p.Slug == slug)
-                .FirstOrDefaultAsync());
+            Post post = await _context.Posts
+                            .AsNoTracking()
+                            .Where(p => p.Slug == slug && p.Published == true)
+                            .FirstOrDefaultAsync();
+
+            await AddToViewCountAsync(post);
+
+            return _mapper.Map<Models.PostDetail>(post);
+        }
+
+        private async Task AddToViewCountAsync(Post post)
+        {
+            post.ViewCount++;
+            _context.Update(post);
+            await _context.SaveChangesAsync();
         }
     }
 }
