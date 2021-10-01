@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -23,12 +21,6 @@ namespace JRovnyBlog.Data.Models
         public string Image { get; set; }
         [Column("view_count")]
         public int ViewCount { get; set; }
-        [Column("comment_count")]
-        public int CommentCount { get; set; }
-        [Column("upvote_count")]
-        public int UpvoteCount { get; set; }
-        [Column("downvote_count")]
-        public int DownvoteCount { get; set; }
         [Column("published")]
         public bool Published { get; set; }
         [Column("created_date")]

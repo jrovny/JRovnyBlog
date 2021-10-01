@@ -28,10 +28,7 @@ namespace JRovnyBlog.Services
                     PostId = p.PostId,
                     Title = p.Title,
                     Slug = p.Slug,
-                    Image = p.Image,
-                    CommentCount = p.CommentCount,
-                    UpvoteCount = p.UpvoteCount,
-                    CreatedDate = p.CreatedDate
+                    Image = p.Image
                 })
                 .OrderByDescending(p => p.PostId)
                 .ToListAsync();
