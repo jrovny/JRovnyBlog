@@ -39,9 +39,9 @@ namespace JRovnyBlog.Services
         public async Task<Models.PostDetail> GetBySlugAsync(string slug)
         {
             Post post = await _context.Posts
-                            .AsNoTracking()
-                            .Where(p => p.Slug == slug && p.Published == true)
-                            .FirstOrDefaultAsync();
+                .AsNoTracking()
+                .Where(p => p.Slug == slug && p.Published == true)
+                .FirstOrDefaultAsync();
 
             await AddToViewCountAsync(post);
 
