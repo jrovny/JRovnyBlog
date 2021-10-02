@@ -1,7 +1,9 @@
 using AutoMapper;
 using JRovnyBlog.Services;
+using JRovnyBlog.TagHelpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +25,7 @@ namespace JRovnyBlog
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IConnectionService, ConnectionService>();
+            services.AddTransient<ITagHelperComponent, GoogleAnalyticsTagHelperComponent>();
             services.AddDbContext<ApplicationDbContext>();
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IPostsService, PostsService>();
