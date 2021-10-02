@@ -27,7 +27,5 @@ namespace JRovnyBlog.Data.Models
         public DateTime CreatedDate { get; set; }
         [Column("modified_date")]
         public DateTime ModifiedDate { get; set; }
-        [Column("user_id")]
-        public int UserId { get; set; }
     }
 }
