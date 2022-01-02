@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using JRovnyBlog.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace JRovnyBlog.Services
 {
@@ -12,15 +13,19 @@ namespace JRovnyBlog.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ILogger<PostsService> _logger;
 
-        public PostsService(ApplicationDbContext context, IMapper mapper)
+        public PostsService(ApplicationDbContext context, IMapper mapper, ILogger<PostsService> logger)
         {
+            _logger = logger;
             _mapper = mapper;
             _context = context;
         }
 
         public async Task<IEnumerable<Models.PostSummary>> GetAllBlogPostsAsync()
         {
+            _logger.LogInformation("Getting all blog posts.");
+
             return await _context.Posts
                 .AsNoTracking()
                 .Where(p => p.Published == true)
@@ -38,6 +43,8 @@ namespace JRovnyBlog.Services
 
         public async Task<Models.PostDetail> GetBySlugAsync(string slug)
         {
+            _logger.LogInformation("Getting blog post by slug {slug}", slug);
+
             Post post = await _context.Posts
                 .AsNoTracking()
                 .Where(p => p.Slug == slug && p.Published == true)
