@@ -16,7 +16,7 @@
             <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-4">
                 @foreach (var post in Model.Posts)
                 {
-                    <div class="col">
+                    <div class="col mb-2">
                         <partial name="PostSummary" model="@post"/>
                     </div>
                 }
