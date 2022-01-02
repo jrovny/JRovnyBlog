@@ -10,8 +10,8 @@
 
 <div class="container px-0">
     @* List of Blog Post Summaries *@
-    <div class="row">
-        <div class="col-0 col-lg-1"></div>
+    <div class="row justify-content-center">
+        @* <div class="col-0 col-lg-1"></div> *@
         <div class="col-12 col-lg-10">
             <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-4">
                 @foreach (var post in Model.Posts)
@@ -22,6 +22,6 @@
                 }
             </div>
         </div>
-        <div class="col-0 col-lg-1"></div>
+        @* <div class="col-0 col-lg-1"></div> *@
     </div>
 </div>
