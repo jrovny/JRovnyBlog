@@ -10,9 +10,10 @@
         <div class="col-md-10">
             <div>
                 <div class="card border-primary mb-3 text-white">
+                    <h1 class="p-3">@Model.Post.Title</h1>
                     <img src="@Model.Post.Image" class="card-img-top img-fluid" alt="Blog post image">
                     <div class="card-body">
-                        <h5 class="card-title">@Model.Post.Title</h5>
+                        @* <h5 class="card-title">@Model.Post.Title</h5> *@
                         <h6 class="card-subtitle text-muted">@Model.Post.CreatedDate.ToShortDateString() &bull; Jordan
                         </h6>
                         <div class="mt-3">@Model.PostContent</div>
