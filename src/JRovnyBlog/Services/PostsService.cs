@@ -43,16 +43,17 @@ namespace JRovnyBlog.Services
                 .Where(p => p.Slug == slug && p.Published == true)
                 .FirstOrDefaultAsync();
 
-            await AddToViewCountAsync(post);
+            // TODO: Replace with call to add views to a log table 
+            // await AddToViewCountAsync(post);
 
             return _mapper.Map<Models.PostDetail>(post);
         }
 
-        private async Task AddToViewCountAsync(Post post)
-        {
-            post.ViewCount++;
-            _context.Update(post);
-            await _context.SaveChangesAsync();
-        }
+        // private async Task AddToViewCountAsync(Post post)
+        // {
+        //     post.ViewCount++;
+        //     _context.Update(post);
+        //     await _context.SaveChangesAsync();
+        // }
     }
 }
