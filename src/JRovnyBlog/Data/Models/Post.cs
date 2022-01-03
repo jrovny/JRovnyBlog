@@ -19,8 +19,8 @@ namespace JRovnyBlog.Data.Models
         public string Slug { get; set; }
         [Column("image")]
         public string Image { get; set; }
-        [Column("view_count")]
-        public int ViewCount { get; set; }
+        // [Column("view_count")]
+        // public int ViewCount { get; set; }
         [Column("published")]
         public bool Published { get; set; }
         [Column("created_date")]
